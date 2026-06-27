@@ -71,7 +71,7 @@ A live data panel that renders the moment your report loads — no page refresh,
 | Layer | Technology |
 |---|---|
 | Frontend | React 18 |
-| AI Model | Gemini 1.5 Pro via `@google/generative-ai` |
+| AI Model | Gemini 3.5 Flash via `@google/generative-ai` |
 | Markdown Rendering | `react-markdown` + `remark-gfm` |
 | Charts | Pure SVG — no chart library |
 | Styling | Handwritten CSS with custom properties |
