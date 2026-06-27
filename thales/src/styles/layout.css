@@ -1,0 +1,108 @@
+/* ── Page shell ── */
+.page {
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: auto 1fr;
+}
+
+/* ── Header ── */
+.header {
+	border-bottom: 1px solid var(--gray-rule);
+	padding: var(--space-sm) var(--space-xl);
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-sm);
+}
+.header__wordmark {
+	font-family: var(--font-display);
+	font-size: var(--scale-lg);
+	letter-spacing: -0.02em;
+}
+.header__tag {
+	font-family: var(--font-mono);
+	font-size: var(--scale-xs);
+	color: var(--gray-mid);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+/* ── Input state ── */
+.input-view {
+	max-width: 640px;
+	margin: var(--space-xl) auto;
+	padding: 0 var(--space-md);
+}
+
+/* ── Report state: two-column ── */
+.report-view {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	gap: 0;
+	align-items: start;
+	max-width: 1200px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+/* ── Sticky left nav ── */
+.report-nav {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	border-right: 1px solid var(--gray-rule);
+	padding: var(--space-lg) var(--space-md);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+}
+.report-nav__item {
+	font-family: var(--font-mono);
+	font-size: var(--scale-xs);
+	color: var(--gray-mid);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	text-decoration: none;
+	padding: 4px 0;
+	border-left: 2px solid transparent;
+	padding-left: var(--space-xs);
+	transition: color 0.15s, border-color 0.15s;
+}
+.report-nav__item:hover,
+.report-nav__item.active {
+	color: var(--black);
+	border-left-color: var(--black);
+}
+
+/* ── Report main ── */
+.report-main {
+	padding: var(--space-lg) var(--space-xl);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+}
+
+@media (max-width: 860px) {
+	.report-view {
+		grid-template-columns: 1fr;
+	}
+	.report-nav {
+		position: static;
+		height: auto;
+		border-right: none;
+		border-bottom: 1px solid var(--gray-rule);
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding: var(--space-sm) var(--space-md);
+	}
+	.report-nav__item {
+		border-left: none;
+		border-bottom: 2px solid transparent;
+		padding: 4px var(--space-xs);
+	}
+	.report-main {
+		padding: var(--space-md);
+	}
+	.lean-canvas__grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}

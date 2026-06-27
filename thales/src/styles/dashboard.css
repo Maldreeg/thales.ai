@@ -1,0 +1,67 @@
+/* ── Dashboard shell ── */
+.dashboard {
+  border: 1px solid var(--gray-rule);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.dashboard__header {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--gray-rule);
+  background: var(--off-white);
+}
+
+/* ── Grid layout: radar left, bar chart right, market bottom ── */
+.dashboard__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+.dashboard__cell {
+  padding: var(--space-md);
+  border-right: 1px solid var(--gray-rule);
+  border-bottom: 1px solid var(--gray-rule);
+}
+.dashboard__cell:nth-child(2n) { border-right: none; }
+.dashboard__cell--full {
+  grid-column: 1 / -1;
+  border-right: none;
+  border-bottom: none;
+}
+.dashboard__cell-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-mid);
+  margin-bottom: var(--space-md);
+}
+
+/* ── Radar chart (pure SVG) ── */
+.radar-wrap {
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  padding: 16px 0;
+}
+
+/* ── Horizontal bar chart ── */
+.bar-chart { display: flex; flex-direction: column; gap: var(--space-sm); }
+.bar-row { display: flex; flex-direction: column; gap: 4px; }
+.bar-row__header { display: flex; justify-content: space-between; }
+.bar-row__name { font-family: var(--font-mono); font-size: var(--scale-xs); color: var(--black); }
+.bar-row__value { font-family: var(--font-mono); font-size: var(--scale-xs); color: var(--gray-mid); }
+.bar-row__track { height: 3px; background: var(--gray-rule); border-radius: 0; }
+.bar-row__fill { height: 3px; background: var(--black); transition: width 1s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* ── MVP effort table ── */
+.effort-table { width: 100%; border-collapse: collapse; }
+.effort-table th, .effort-table td { padding: 8px var(--space-sm); border-bottom: 1px solid var(--gray-rule); font-size: var(--scale-xs); text-align: left; }
+.effort-table th { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-mid); font-weight: 500; }
+.effort-table td:last-child { font-family: var(--font-mono); }
+.effort-badge { display: inline-block; padding: 1px 6px; border: 1px solid var(--gray-rule); border-radius: 2px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .dashboard__grid { grid-template-columns: 1fr; }
+  .dashboard__cell { border-right: none; }
+}
